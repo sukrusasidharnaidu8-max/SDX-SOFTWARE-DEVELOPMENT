@@ -1,0 +1,45 @@
+import { motion } from 'framer-motion'
+import { FileSignature, ScrollText } from 'lucide-react'
+
+export default function TermsConditions() {
+  const sections = [
+    { title: 'Acceptance of Terms', body: 'By accessing and using the SDX Software Development website and services, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our services.' },
+    { title: 'Services', body: 'SDX Software Development provides web development services including but not limited to landing pages, business websites, portfolio websites, e-commerce websites, web applications, website redesign, maintenance, and SEO optimization. Specific deliverables and timelines are outlined in individual project agreements.' },
+    { title: 'Payment Terms', body: 'Payment terms are specified in your project quotation or invoice. Typically, 50% advance payment is required before project commencement, with the balance due upon project completion. For maintenance plans, payment is due monthly in advance. All prices are in Indian Rupees (INR) unless otherwise stated.' },
+    { title: 'Client Responsibilities', body: 'Clients are responsible for providing accurate and timely content, feedback, and approvals. Delays in providing required materials may extend project timelines. Clients must ensure they have the right to use all content and assets provided to us for inclusion in their projects.' },
+    { title: 'Intellectual Property', body: 'Upon full payment, ownership of the final website design and code transfers to the client. SDX Software Development retains the right to display the project in our portfolio unless otherwise agreed in writing. Third-party libraries and tools remain under their respective licenses.' },
+    { title: 'Refunds', body: 'Refund policies are outlined in our separate Refund Policy page. Advance payments are generally non-refundable once work has commenced, as they cover initial design and development costs.' },
+    { title: 'Limitation of Liability', body: 'SDX Software Development shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services. Our total liability shall not exceed the amount paid by the client for the specific project giving rise to the claim.' },
+    { title: 'Termination', body: 'Either party may terminate the project with written notice. Fees for work completed up to the termination date are payable. Upon termination, the client receives all completed work for which payment has been made.' },
+    { title: 'Governing Law', body: 'These terms are governed by the laws of India. Any disputes shall be subject to the jurisdiction of the courts in Tirupati, Andhra Pradesh, India.' },
+    { title: 'Changes to Terms', body: 'We reserve the right to update these Terms and Conditions at any time. Continued use of our services after changes constitutes acceptance of the new terms.' },
+  ]
+
+  return (
+    <div className="pt-20">
+      <section className="section-padding">
+        <div className="container-narrow max-w-3xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
+            <div className="w-16 h-16 rounded-2xl bg-brand-500/10 flex items-center justify-center mx-auto mb-4">
+              <FileSignature className="w-8 h-8 text-brand-500" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-heading font-extrabold">Terms & Conditions</h1>
+            <p className="text-slate-500 dark:text-slate-400 mt-3">Last updated: September 2026</p>
+          </motion.div>
+
+          <div className="glass-card p-6 sm:p-8 space-y-6">
+            {sections.map((s, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                <h2 className="text-xl font-heading font-bold mb-2 flex items-center gap-2">
+                  <ScrollText className="w-4 h-4 text-brand-500" />
+                  {s.title}
+                </h2>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{s.body}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
