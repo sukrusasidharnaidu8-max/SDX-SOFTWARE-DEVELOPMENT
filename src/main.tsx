@@ -8,7 +8,7 @@ import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/SDX-SOFTWARE-DEVELOPMENT">
       <ThemeProvider>
         <AuthProvider>
           <App />
